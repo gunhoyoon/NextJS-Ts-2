@@ -1,4 +1,4 @@
-export type domesticProductItem = {
+export type DomesticProductItem = {
   api_featured_image: string;
   brand: string;
   category: null;
@@ -19,4 +19,4 @@ export type domesticProductItem = {
   updated_at: string;
   website_link: string;
 };
-export type domesticProducts = domesticProductItem[];
+export type DomesticProducts = DomesticProductItem[];

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { FC } from "react";
 import { Grid } from "semantic-ui-react";
 import { domesticProducts } from "../../model/domesticProduct";
@@ -14,16 +15,22 @@ const ItemList: FC<Props> = ({ list }) => {
         <Grid.Row>
           {list.map((item) => (
             <Grid.Column key={item.id}>
-              <div className={styles.wrap}>
-                <img
-                  src={item.image_link}
-                  alt={item.name}
-                  className={styles.img_item}
-                />
-                <strong className={styles.tit_item}>{item.name}</strong>
-                <span className={styles.txt_info}>{item.product_type}</span>
-                <strong className={styles.num_price}>${item.price}</strong>
-              </div>
+              <Link href={`/view/${item.id}`}>
+                <a>
+                  {/* 링크로 각각 id가 있으니까 해당 상세페이지 접근 가능  */}
+
+                  <div className={styles.wrap}>
+                    <img
+                      src={item.image_link}
+                      alt={item.name}
+                      className={styles.img_item}
+                    />
+                    <strong className={styles.tit_item}>{item.name}</strong>
+                    <span className={styles.txt_info}>{item.product_type}</span>
+                    <strong className={styles.num_price}>${item.price}</strong>
+                  </div>
+                </a>
+              </Link>
             </Grid.Column>
           ))}
         </Grid.Row>

@@ -1,0 +1,19 @@
+.wrap {
+  text-align: center;
+  display: flex;
+}
+
+.img_item {
+}
+
+.info_item {
+  display: inline-flex;
+  flex-direction: column;
+}
+.tit_item {
+}
+.num_price {
+}
+.tit_des {
+  text-align: center;
+}
