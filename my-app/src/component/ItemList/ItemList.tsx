@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React, { FC } from "react";
 import { Grid } from "semantic-ui-react";
-import { domesticProducts } from "../../model/domesticProduct";
+import { DomesticProducts } from "../../model/domesticProduct";
 import styles from "./ItemList.module.css";
 
 interface Props {
-  list: domesticProducts;
+  list: DomesticProducts;
 }
 
 const ItemList: FC<Props> = ({ list }) => {

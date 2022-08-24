@@ -1,19 +1,37 @@
-.wrap {
-  text-align: center;
+.item_wrap {
   display: flex;
+  margin-left: 30px;
+  text-align: center;
 }
 
 .img_item {
+  margin-top: 30px;
+  margin-left: 100px;
 }
 
 .info_item {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
+  margin-top: 20px;
+  margin-left: 30px;
 }
 .tit_item {
+  margin-top: 30px;
+  font-size: 20px;
 }
 .num_price {
+  margin-top: 30px;
+  font-size: 30px;
+  color: powderblue;
+}
+.txt_info {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
 }
 .tit_des {
   text-align: center;
+}
+.product_button {
+  margin-top: 20px;
 }

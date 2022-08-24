@@ -1,6 +1,7 @@
 import Axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
+import { Loader } from "semantic-ui-react";
 import Item from "../../src/component/Item/Item";
 import { DomesticProductItem } from "../../src/model/domesticProduct";
 
@@ -9,6 +10,7 @@ const Post = () => {
   const { id } = router.query;
 
   const [item, setItem] = useState<DomesticProductItem | null>(null);
+  const [isLoading, setIsLoading] = useState<SetStateAction<boolean>>(true);
   // useState의 타입을 어떻게 넣어줘야하는지 뭘 생각해서 ? 해야하는지
 
   const API_URL = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
@@ -19,8 +21,11 @@ const Post = () => {
     Axios.get(API_URL).then((res) => {
       console.log(res.data);
       setItem(res.data);
+      setIsLoading(false);
     });
   }
+  // 각각 id를 받아서 상세페이지 , 그럼 여기서도 데이터를 받아온 후에는 false로 해주면 되겠다. 이런 생각을 왜 못해씅ㄹ까
+
   // api 데이터 잡아와서 console.log 에서 확인은 했는데 각각의 id가 있는걸 다시 한번 확인한건가
   // 아 여기선 각각의 id 값을 가져야하기때문에 id를 위한 데이터를 가지고 온거 결구 setItem에 들어갈건 데이터임
   // URL
@@ -34,7 +39,20 @@ const Post = () => {
 
   // 최초 한번 데이터
 
-  return <div>{item ? <Item item={item} /> : null}</div>;
+  return (
+    <div>
+      {isLoading && (
+        <div style={{ padding: "300px 0" }}>
+          <Loader inline="centered" active>
+            Loading
+          </Loader>
+        </div>
+      )}
+      {!isLoading && item ? <Item item={item} /> : null}
+      {/* 이걸 삼항으로도 사용이 가능함 */}
+      {/* isLoading ? ㅇㅇ : ㅇㅇ 이런식으로 근데 가독성이 좋은진 모르겠음 쓸줄 몰라서 그런거 아님 절대 */}
+    </div>
+  );
   //  domesticProducts | undefined 타입 추론이 이렇게 되니까 undefined 는 저기 타입 정의 안에 들어갈 수 없다 라는데
   // 그럼 여기서 왜 undefined로 정의가 되는걸까요
   // id가 없는 경우가 있어서 그런가

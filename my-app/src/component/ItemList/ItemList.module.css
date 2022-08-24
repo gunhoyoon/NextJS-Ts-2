@@ -6,6 +6,9 @@
   display: block;
   margin: 0 auto;
 }
+.info_item {
+  margin-top: 20px;
+}
 
 .tit_item {
   display: -webkit-box;
