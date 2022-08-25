@@ -2,7 +2,8 @@ import React from "react";
 import { Menu } from "semantic-ui-react";
 
 const Gnb = () => {
-  let activeItem = "home";
+  const activeItem = "home";
+
   return (
     <Menu inverted>
       <Menu.Item

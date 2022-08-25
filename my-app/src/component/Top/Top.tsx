@@ -9,7 +9,7 @@ const Top = () => {
     <div>
       <Link href="/">
         <a>
-          <div style={{ display: "flex", paddingTop: 20 }}>
+          <div style={{ display: "flex", paddingTop: 10 }}>
             <div style={{ flex: "100px 0 0" }}>
               {/* 3개 쓸 경우 : 상 100px 좌우 0 하 0  */}
               <img
