@@ -1,7 +1,11 @@
 import Axios from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { GetServerSideProps, GetServerSidePropsContext } from "next/types";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  NextPage,
+} from "next/types";
 import { FC, SetStateAction, useEffect, useState } from "react";
 import { Loader } from "semantic-ui-react";
 import Item from "../../src/component/Item/Item";
@@ -12,7 +16,7 @@ interface Props {
 }
 //
 
-const Post: FC<Props> = ({ item }) => {
+const Post: NextPage<Props> = ({ item }) => {
   return (
     <>
       {item && (
