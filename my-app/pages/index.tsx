@@ -13,18 +13,21 @@ const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState<SetStateAction<boolean>>(true);
   // api를 요청하는 그 사이에 아무것도 나오지않아 사용자 입장에서 맨 화면을 바라봐야하는 그 시간을
   // 채워주기 위한 로딩창 , 사용감을 심어주는 느낌임. api가 다 받아와진 후 false로 설정해주면 전까진 사용 이후 사용안함
-  const API_URL =
-    "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  // 정적으로 주소 떄려박았을땐 얘도 무조건 있는거 알고 가만히 있는데 변수로 심어줬기때문에
   function getData() {
-    Axios.get(API_URL).then((res) => {
-      console.log(res.data);
-      setList(res.data);
-      setIsLoading(false);
-      // api가 다 받아와지면 setIsLoading이 false가 되니까 여기서
-      // false가 되는 순간 데이터가 다 받아와진거임
-    });
+    {
+      API_URL &&
+        Axios.get(API_URL).then((res) => {
+          console.log(res.data);
+          setList(res.data);
+          setIsLoading(false);
+          // api가 다 받아와지면 setIsLoading이 false가 되니까 여기서
+          // false가 되는 순간 데이터가 다 받아와진거임
+        });
+    }
   }
+
   useEffect(() => {
     getData();
   }, []);
