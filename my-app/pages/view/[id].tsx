@@ -13,10 +13,11 @@ import { DomesticProductItem } from "../../src/model/domesticProduct";
 
 interface Props {
   item: DomesticProductItem;
+  name: string;
 }
 //
 
-const Post: NextPage<Props> = ({ item }) => {
+const Post: NextPage<Props> = ({ item, name }) => {
   return (
     <>
       {item && (
@@ -25,6 +26,7 @@ const Post: NextPage<Props> = ({ item }) => {
             <title>{item.name}</title>
             <meta name="description" content={item.description}></meta>
           </Head>
+          {name} 환경입니다
           <Item item={item} />
         </>
       )}
@@ -52,9 +54,11 @@ export const getServerSideProps: GetServerSideProps = async (
   return {
     props: {
       item: data,
+      name: process.env.name,
       // 반환된 프롭스를 사용하여 빌드시에 페이지에 먼저 랜더링합니다
+      // 여기서 name은 각 env파일에 정의해놓은 name으로 접근해서 각각 받아오는 api의 name이 들어가서 화면에 보여지게 하는거같음
     },
-    // 이 컴포넌트 안에서의 프롭스로 data를 item에 담아서 넘김
+    // 이 컴포넌트 안에서의 프롭스로 data를 item에 담아서 위에 item, name한테 넘겨준거임
   };
 };
 // 지금 context에서 . 찍고 params.id로 접근하는데 일단 내가 정의한 GetServerSideProps에는 params가 없다는 에러가 뜨는데

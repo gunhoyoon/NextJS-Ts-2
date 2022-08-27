@@ -1,3 +1,4 @@
+import axios from "axios";
 import Axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -16,16 +17,10 @@ const Home: NextPage = () => {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   // 정적으로 주소 떄려박았을땐 얘도 무조건 있는거 알고 가만히 있는데 변수로 심어줬기때문에
   function getData() {
-    {
-      API_URL &&
-        Axios.get(API_URL).then((res) => {
-          console.log(res.data);
-          setList(res.data);
-          setIsLoading(false);
-          // api가 다 받아와지면 setIsLoading이 false가 되니까 여기서
-          // false가 되는 순간 데이터가 다 받아와진거임
-        });
-    }
+    axios.get(API_URL!).then((res) => setList(res.data));
+    setIsLoading(false);
+    // api가 다 받아와지면 setIsLoading이 false가 되니까 여기서
+    // false가 되는 순간 데이터가 다 받아와진거임
   }
 
   useEffect(() => {
