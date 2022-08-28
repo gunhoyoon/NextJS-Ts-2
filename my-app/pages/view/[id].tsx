@@ -62,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async (
   };
 };
 // 지금 context에서 . 찍고 params.id로 접근하는데 일단 내가 정의한 GetServerSideProps에는 params가 없다는 에러가 뜨는데
-// 애초 context 타입 정의가 일단 잘못된건가싶고. (GetServerSidePropsContext 이거 썼어야됐음 잘못된거였음)
+// (GetServerSidePropsContext )
 // 결국 id로 응답값을 호출하고 받아온 api 결과값을 item에 넣어준건데 그걸 내부 컴포넌트 맨 상단으로 보냄
 // 일단 내 해석으로는 결국 이 item이 어디로 보내지냐를 보니까 item 컴포넌트로 보내짐 그럼 저연스럽게 상세 페이지들이 나오는건 이해가 됨
 // 외부 데이터를 서버로 받아와서 초기 데이터로 설정하고 페이지로 전달한다.
