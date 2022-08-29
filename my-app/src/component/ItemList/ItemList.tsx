@@ -15,7 +15,7 @@ const ItemList: FC<Props> = ({ list }) => {
         <Grid.Row>
           {list.map((item) => (
             <Grid.Column key={item.id}>
-              <Link href={`/view/${item.id}`}>
+              <Link href="/detail/[id]" as={`/detail/${item.id}`}>
                 <a>
                   {/* 링크로 각각 id가 있으니까 해당 상세페이지 접근 가능  */}
 
