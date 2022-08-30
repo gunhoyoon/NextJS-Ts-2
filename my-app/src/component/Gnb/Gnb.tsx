@@ -21,8 +21,8 @@ const Gnb: FC = () => {
       router.push("/");
     } else if (data.name === "about") {
       router.push("/about");
-      // next Link 나 a 태그를 사용하면 페이지가 그대로 있는 상태에서 안에 내용물만 바뀜
-      // location 으로 이동할시에 페이지 전체가 새로고침되면서 화면을 다시 그림 그러면 요청이 늘어나게됨 자동으로
+    } else if (data.name === "admin") {
+      router.push("/admin");
     }
   }
 
@@ -38,6 +38,14 @@ const Gnb: FC = () => {
         name="about" //
         active={activeItem === "about"}
         onClick={goLink}
+        // a태그로 이동하는게 아니라 onClickd 이벤트로 이동하는 경우임
+      />
+      <Menu.Item
+        name="admin" //
+        active={activeItem === "admin"}
+        onClick={() => {
+          router.push("/admin ");
+        }}
         // a태그로 이동하는게 아니라 onClickd 이벤트로 이동하는 경우임
       />
     </Menu>
