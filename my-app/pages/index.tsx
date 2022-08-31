@@ -3,8 +3,13 @@ import Axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { SetStateAction, useEffect, useState } from "react";
+import { useHref } from "react-router-dom";
 import { Divider, Header, Loader } from "semantic-ui-react";
+import Button from "../src/component/common/Button";
+import Input from "../src/component/common/Input";
+
 import ItemList from "../src/component/ItemList/ItemList";
 import {
   DomesticProductItem,
@@ -40,6 +45,17 @@ const Home: NextPage<Props> = ({ list }) => {
       기존 랜더해주던 부분을 감싸서 실행 */}
       (
       <>
+        <Button
+          type="button"
+          style={{
+            backgroundColor: "pink",
+            width: 150,
+            height: 30,
+          }}
+          onClick={() => {}}
+        ></Button>
+        {/* <Input></Input> */}
+
         <Header as="h3" style={{ paddingTop: 40, paddingLeft: 30 }}>
           베스트 상품
         </Header>

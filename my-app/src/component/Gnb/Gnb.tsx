@@ -30,21 +30,21 @@ const Gnb: FC = () => {
     <Menu inverted>
       <Menu.Item
         name="home" //
-        active={activeItem === "home"}
+        active={activeItem === "/"}
         onClick={goLink}
         // a태그로 이동하는게 아니라 onClickd 이벤트로 이동하는 경우임
       />
       <Menu.Item
         name="about" //
-        active={activeItem === "about"}
+        active={activeItem === "/about"}
         onClick={goLink}
         // a태그로 이동하는게 아니라 onClickd 이벤트로 이동하는 경우임
       />
       <Menu.Item
         name="admin" //
-        active={activeItem === "admin"}
+        active={activeItem === "/admin"}
         onClick={() => {
-          router.push("/admin ");
+          router.push("/admin");
         }}
         // a태그로 이동하는게 아니라 onClickd 이벤트로 이동하는 경우임
       />
