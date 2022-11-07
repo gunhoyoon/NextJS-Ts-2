@@ -2,15 +2,14 @@ import React, { FC } from "react";
 
 interface Props {
   onChange: Function;
-  text?: string;
   placeholder?: string;
   style?: string;
-  // type :
+  type?: "email" | "password" | "text";
 }
 
-const Input: FC<Props> = ({ onChange }) => {
+const Input: FC<Props> = ({ onChange, placeholder, style, type }) => {
   const onchangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //  const { isFocus,placeholder,value,text, onChange } = e.target;
+    // const { isFocus, placeholder, value, text, onChange } = e.target;
     // onChange(value);
   };
 

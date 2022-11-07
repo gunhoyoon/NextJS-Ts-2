@@ -1,15 +1,7 @@
-import axios from "axios";
 import Axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { SetStateAction, useEffect, useState } from "react";
-import { useHref } from "react-router-dom";
 import { Divider, Header, Loader } from "semantic-ui-react";
-import Button from "../src/component/common/Button";
-import Input from "../src/component/common/Input";
-
 import ItemList from "../src/component/ItemList/ItemList";
 import {
   DomesticProductItem,
@@ -43,17 +35,7 @@ const Home: NextPage<Props> = ({ list }) => {
       {/* 결국 api를 받아와서 랜더해주는 부분은 이 밑에서부터의 부분이기 때문에
       여기서 조건을 걸어주고 isLoading이 true일뗀 로딩 fasle일땐 api요청을 받아온 후기 때문에
       기존 랜더해주던 부분을 감싸서 실행 */}
-      (
       <>
-        <Button
-          type="button"
-          style={{
-            backgroundColor: "pink",
-            width: 150,
-            height: 30,
-          }}
-          onClick={() => {}}
-        ></Button>
         {/* <Input></Input> */}
 
         <Header as="h3" style={{ paddingTop: 40, paddingLeft: 30 }}>
@@ -68,7 +50,6 @@ const Home: NextPage<Props> = ({ list }) => {
         <Divider />
         <ItemList list={list.slice(9)} />
       </>
-      )
     </div>
   );
 };
@@ -94,8 +75,6 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
-
-// 일단 지금 static한 페이지를 만든다는걸 먼저 생각해야됨 로딩창이 필요없는거처럼 정적으로 움직일때 변경해야할 부분도 생각해봐야함
 
 // NextJS는 기본적으로 모든 페이지들을 PreRendering 함
 // 사전에 HTML 파일을 미리 만든다는 의미임
